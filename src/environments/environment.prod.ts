@@ -1,5 +1,3 @@
-// environment.prod.ts
-//
 // En producción el frontend NO conoce el API Key de TMDB.
 // Las peticiones van a /api/*, que el netlify.toml redirige
 // a la función serverless tmdb-proxy.js, donde el API Key
@@ -7,6 +5,7 @@
 //
 // La imgPath sigue apuntando directo a TMDB porque las imágenes
 // son recursos públicos que no requieren autenticación.
+
 export const environment = {
   production: true,
   url: '/api',
