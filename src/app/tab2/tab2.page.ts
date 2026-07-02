@@ -38,7 +38,7 @@ export class Tab2Page {
       });
   }
 
-  async mostrarModal(id: string){
+  async mostrarModal(id: any){
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
       componentProps: {
@@ -48,6 +48,6 @@ export class Tab2Page {
     modal.present();
   }
 
-  
+
 
 }

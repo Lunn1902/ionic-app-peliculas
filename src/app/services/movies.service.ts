@@ -4,12 +4,12 @@ import { environment } from 'src/environments/environment';
 import { ActoresPelicula, Genre, PeliculaDetalle, RespuestaMDB } from '../interfaces/interfaces';
 
 const url = environment.url;
-const apiKey = environment.apiKey; // Corregido a apiKey con K mayúscula
+const apiKey = environment.apiKey;
 
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService { // Mantenemos el nombre original para no romper la app
+export class MoviesService {
 
   private popularPages = 0;
   generos: Genre[] = [];
@@ -19,8 +19,6 @@ export class MoviesService { // Mantenemos el nombre original para no romper la 
   private ejecutarQuery<T>(query: string){
     let urlCompleta = url + query;
 
-    // Lógica del Proxy: Si apiKey existe (local), lo concatena.
-    // Si estamos en producción (Netlify), apiKey será '' y no lo concatena.
     if (apiKey) {
       urlCompleta += `&api_key=${apiKey}`;
     }
@@ -53,11 +51,11 @@ export class MoviesService { // Mantenemos el nombre original para no romper la 
     return this.ejecutarQuery<RespuestaMDB>(query);
   }
 
-  getPeliculaDetalle(id: string){
+  getPeliculaDetalle(id: string | number){
     return this.ejecutarQuery<PeliculaDetalle>(`/movie/${id}?a=1`);
   }
 
-  getActoresPelicula(id: string){
+  getActoresPelicula(id: string | number){
     return this.ejecutarQuery<ActoresPelicula>(`/movie/${id}/credits?a=1`);
   }
 

@@ -21,7 +21,7 @@ export class SlideshowBackdropComponent implements OnInit {
 
   ngOnInit() {}
 
-  async verDetalle(id: string){
+  async verDetalle(id: any){
     const modal = await this.modalCtrl.create({
       component: DetalleComponent,
       componentProps: {

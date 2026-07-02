@@ -8,7 +8,7 @@
 
 export const environment = {
   production: true,
-  url: '/api',
-  apikey: '',          // Vacío a propósito: el proxy lo inyecta server-side
-  imgPath: 'https://image.tmdb.org/t/p',
+  url: 'https://api.themoviedb.org/3',
+  apiKey: '',          // Vacío a propósito: el proxy de Netlify inyectará la llave
+  imgPath: 'https://image.tmdb.org/t/p'
 };
